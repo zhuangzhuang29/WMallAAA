@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: eureka-one
+server:
+  port: 8761
