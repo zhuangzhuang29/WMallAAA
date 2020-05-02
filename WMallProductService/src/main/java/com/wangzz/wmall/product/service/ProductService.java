@@ -1,7 +1,8 @@
 package com.wangzz.wmall.product.service;
 
-import com.wangzz.wmall.product.hibernate.entity.Product;
+
 import com.wangzz.wmall.product.mybatis.mapper.IProductMapper;
+import com.wangzz.wmall.product.mybatis.vo.ProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class ProductService {
     @Autowired
     IProductMapper iProductMapper;
 
-    public Product createProduct(Product product) {
-        return iProductMapper.createProduct(product);
+    public ProductVO createProduct(ProductVO productVO) {
+        return iProductMapper.createProduct(productVO);
     }
 }

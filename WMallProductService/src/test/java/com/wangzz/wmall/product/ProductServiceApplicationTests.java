@@ -1,6 +1,6 @@
 package com.wangzz.wmall.product;
 
-import com.wangzz.wmall.product.hibernate.entity.Product;
+import com.wangzz.wmall.product.mybatis.vo.ProductVO;
 import com.wangzz.wmall.product.service.ProductService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,14 @@ class ProductServiceApplicationTests {
 
     @Test
     void contextLoads() {
-        Product product = new Product();
-        product.setProductName("卫龙大面筋");
-        product.setProductDesc("麻辣味长条面筋");
-        product.setProductProducePlace("河南省漯河市");
 
-        Product newProduct = productService.createProduct(product);
+        ProductVO productVO = new ProductVO();
+
+        productVO.setProductName("卫龙大面筋");
+        productVO.setProductDesc("麻辣味长条面筋");
+        productVO.setProductProducePlace("河南省漯河市");
+
+        ProductVO newProduct = productService.createProduct(productVO);
     }
 
 }

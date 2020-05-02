@@ -1,7 +1,7 @@
 package com.wangzz.wmall.product.mybatis.mapper;
 
-import com.wangzz.wmall.product.hibernate.entity.Product;
-import com.wangzz.wmall.product.mybatis.modelvo.ProductVO;
+
+import com.wangzz.wmall.product.mybatis.vo.ProductVO;
 import org.apache.ibatis.annotations.Param;
 
 /**

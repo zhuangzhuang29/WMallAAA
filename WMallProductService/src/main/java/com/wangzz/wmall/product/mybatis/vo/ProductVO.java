@@ -1,4 +1,4 @@
-package com.wangzz.wmall.product.mybatis.modelvo;
+package com.wangzz.wmall.product.mybatis.vo;
 
 import java.util.Date;
 
