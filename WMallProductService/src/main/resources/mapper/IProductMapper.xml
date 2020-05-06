@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wangzz.wmall.product.mybatis.mapper.IProductMapper">
-    <insert id="createProduct" parameterType="com.wangzz.wmall.product.mybatis.modelvo.ProductVO">
+    <insert id="createProduct" parameterType="com.wangzz.wmall.product.mybatis.vo.ProductVO">
         INSERT
         INTO
         WMALL_PRODUCT_T(

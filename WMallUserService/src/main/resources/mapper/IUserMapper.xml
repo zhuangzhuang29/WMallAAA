@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangzz.wmall.user.mybatis.mapper.IUserMapper">
+
+    <select id="getUserModelById" resultMap="userModel">
+       SELECT
+       T.id AS id,
+       T.real_name AS realName,
+       T.nick_name AS nickName,
+       T.sex AS sex,
+       T.create_Time AS createTime
+       FROM USER T
+       WHERE
+        T.id=#{userId}
+    </select>
+    
+    <resultMap id="userModel" type="com.wangzz.wmall.user.vo.UserModel">
+        <collection property="childUserList" ofType="com.wangzz.wmall.user.vo.UserModel" select="childUserMode" column="id"/>
+    </resultMap>
+
+    <select id="childUserMode" resultMap="childUserModelMap">
+       SELECT
+       TT.id AS id,
+       TT.real_name AS realName,
+       TT.nick_name AS nickName,
+       TT.sex AS sex,
+       TT.create_Time AS createTime
+       FROM USER TT
+       WHERE
+        TT.invite_user_id=#{userId}
+    </select>
+
+    <resultMap id="childUserModelMap" type="com.wangzz.wmall.user.vo.UserModel">
+    </resultMap>
+</mapper>

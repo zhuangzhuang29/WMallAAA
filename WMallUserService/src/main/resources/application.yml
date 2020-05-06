@@ -1,5 +1,9 @@
 spring:
   application:
     name: user-server
+  profiles:
+    active: local
 server:
   port: 9029
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

@@ -1,0 +1,22 @@
+package com.wangzz.wmall.user.mybatis.service;
+
+import com.wangzz.wmall.user.api.iservice.IUserService;
+import com.wangzz.wmall.user.mybatis.mapper.IUserMapper;
+import com.wangzz.wmall.user.vo.UserModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by wangq on 2020/5/6.
+ */
+@Service
+//@Component("MUserService")
+public class MUserService implements IUserService {
+    @Autowired
+    IUserMapper iUserMapper;
+
+    @Override
+    public UserModel getUserModel(Long userId) {
+        return iUserMapper.getUserModelById(userId);
+    }
+}
