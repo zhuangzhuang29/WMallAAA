@@ -1,13 +1,12 @@
 package com.wangzz.wmall.user.hibernate.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by wangq on 2020/5/2.
  */
 @Entity
-public class User {
+public class User implements BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,8 +20,6 @@ public class User {
 
     @OneToOne
     User inviteUser;
-
-    private Date createTime;
 
     public User() {
     }

@@ -2,32 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wangzz.wmall.user.mybatis.mapper.IUserMapper">
 
-    <select id="getUserModelById" resultMap="userModel">
+    <!--用户基础信息查询-->
+    <sql id="select_user_base_sql">
        SELECT
        T.id AS id,
        T.real_name AS realName,
        T.nick_name AS nickName,
        T.sex AS sex,
        T.create_Time AS createTime
-       FROM USER T
+       FROM user T
+    </sql>
+
+    <select id="getUserModelById" resultMap="userModel">
+        <include refid="select_user_base_sql"/>
        WHERE
         T.id=#{userId}
     </select>
     
     <resultMap id="userModel" type="com.wangzz.wmall.user.vo.UserModel">
+        <id column="id" property="id"/>
         <collection property="childUserList" ofType="com.wangzz.wmall.user.vo.UserModel" select="childUserMode" column="id"/>
     </resultMap>
 
     <select id="childUserMode" resultMap="childUserModelMap">
-       SELECT
-       TT.id AS id,
-       TT.real_name AS realName,
-       TT.nick_name AS nickName,
-       TT.sex AS sex,
-       TT.create_Time AS createTime
-       FROM USER TT
+    <include refid="select_user_base_sql"/>
        WHERE
-        TT.invite_user_id=#{userId}
+        T.invite_user_id=#{id}
     </select>
 
     <resultMap id="childUserModelMap" type="com.wangzz.wmall.user.vo.UserModel">

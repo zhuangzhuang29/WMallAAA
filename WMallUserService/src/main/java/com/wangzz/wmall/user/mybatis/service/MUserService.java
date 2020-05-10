@@ -6,6 +6,8 @@ import com.wangzz.wmall.user.vo.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by wangq on 2020/5/6.
  */
@@ -18,5 +20,10 @@ public class MUserService implements IUserService {
     @Override
     public UserModel getUserModel(Long userId) {
         return iUserMapper.getUserModelById(userId);
+    }
+
+    @Override
+    public String userLogin(String userName, String password, HttpSession httpSession) {
+        return null;
     }
 }
