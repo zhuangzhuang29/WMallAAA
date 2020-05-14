@@ -2,6 +2,7 @@ package com.wangzz.wmall.user.controller;
 
 import com.wangzz.wmall.user.api.icontroller.IUserController;
 import com.wangzz.wmall.user.api.iservice.IUserService;
+import com.wangzz.wmall.user.common.config.ServiceConfig;
 import com.wangzz.wmall.user.vo.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,12 +16,12 @@ import javax.servlet.http.HttpSession;
 @RestController
 public class UserController implements IUserController {
     @Autowired
-    @Qualifier("HUserService")
+    @Qualifier(ServiceConfig.DEFAULT_SERVICE)
     IUserService iUserService;
 
 
     @Override
-    public UserModel getUserModel(Long userId,HttpSession httpSession) {
+    public UserModel getUserModel(Long userId, HttpSession httpSession) {
 
         System.out.println(httpSession.getId());
         UserModel userModel = iUserService.getUserModel(userId);
@@ -34,8 +35,8 @@ public class UserController implements IUserController {
     }
 
     @Override
-    public String userLogin(String userName, String password,HttpSession httpSession) {
-        return iUserService.userLogin(userName, password,httpSession);
+    public String userLogin(String userName, String password, HttpSession httpSession) {
+        return iUserService.userLogin(userName, password, httpSession);
     }
 
 }
